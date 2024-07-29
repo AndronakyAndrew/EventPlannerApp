@@ -1,0 +1,94 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\andro\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\My repositories\\EventPlannerApp\\EventPlannerApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6007E1B3-1B6A-4AC7-BE2E-879921148781}|EventPlannerApp\\EventPlannerApp.csproj|c:\\users\\andro\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\my repositories\\eventplannerapp\\eventplannerapp\\eventplannerapp\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6007E1B3-1B6A-4AC7-BE2E-879921148781}|EventPlannerApp\\EventPlannerApp.csproj|solutionrelative:eventplannerapp\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6007E1B3-1B6A-4AC7-BE2E-879921148781}|EventPlannerApp\\EventPlannerApp.csproj|c:\\users\\andro\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\my repositories\\eventplannerapp\\eventplannerapp\\eventplannerapp\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6007E1B3-1B6A-4AC7-BE2E-879921148781}|EventPlannerApp\\EventPlannerApp.csproj|solutionrelative:eventplannerapp\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6007E1B3-1B6A-4AC7-BE2E-879921148781}|EventPlannerApp\\EventPlannerApp.csproj|c:\\users\\andro\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\my repositories\\eventplannerapp\\eventplannerapp\\eventplannerapp\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6007E1B3-1B6A-4AC7-BE2E-879921148781}|EventPlannerApp\\EventPlannerApp.csproj|solutionrelative:eventplannerapp\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6007E1B3-1B6A-4AC7-BE2E-879921148781}|EventPlannerApp\\EventPlannerApp.csproj|c:\\users\\andro\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\my repositories\\eventplannerapp\\eventplannerapp\\eventplannerapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6007E1B3-1B6A-4AC7-BE2E-879921148781}|EventPlannerApp\\EventPlannerApp.csproj|solutionrelative:eventplannerapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\andro\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\My repositories\\EventPlannerApp\\EventPlannerApp\\EventPlannerApp\\Program.cs",
+              "RelativeDocumentMoniker": "EventPlannerApp\\Program.cs",
+              "ToolTip": "C:\\Users\\andro\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\My repositories\\EventPlannerApp\\EventPlannerApp\\EventPlannerApp\\Program.cs",
+              "RelativeToolTip": "EventPlannerApp\\Program.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABQAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-25T22:57:44.305Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\andro\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\My repositories\\EventPlannerApp\\EventPlannerApp\\EventPlannerApp\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "EventPlannerApp\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\andro\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\My repositories\\EventPlannerApp\\EventPlannerApp\\EventPlannerApp\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "EventPlannerApp\\Controllers\\AccountController.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAkwE0AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-29T11:51:47.311Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\andro\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\My repositories\\EventPlannerApp\\EventPlannerApp\\EventPlannerApp\\Models\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "EventPlannerApp\\Models\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\andro\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\My repositories\\EventPlannerApp\\EventPlannerApp\\EventPlannerApp\\Models\\LoginViewModel.cs",
+              "RelativeToolTip": "EventPlannerApp\\Models\\LoginViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-29T13:21:55.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\andro\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\My repositories\\EventPlannerApp\\EventPlannerApp\\EventPlannerApp\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "EventPlannerApp\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\andro\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\My repositories\\EventPlannerApp\\EventPlannerApp\\EventPlannerApp\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "EventPlannerApp\\Views\\Account\\Login.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-29T13:00:02.833Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
