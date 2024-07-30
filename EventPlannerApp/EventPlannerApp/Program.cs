@@ -59,4 +59,8 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.MapControllerRoute(
+    name: "budget",
+    pattern: "{controller=BudgetItems}/{action=Create}");
+
 app.Run();

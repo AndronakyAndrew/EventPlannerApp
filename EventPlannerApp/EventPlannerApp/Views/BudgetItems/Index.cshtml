@@ -1,0 +1,34 @@
+﻿@model IEnumerable<EventPlannerApp.Models.BudgetItem>
+
+@{
+    ViewData["Title"] = "Budget Items";
+}
+
+<h2>Budget Items</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Description</td>
+                <td>@item.Amount.ToString("C")</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Budget", new { id = item.Id })" class="btn btn-sm btn-primary">Edit</a>
+                    <a href="@Url.Action("Delete", "Budget", new { id = item.Id })" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a href="@Url.Action("Create", "Budget", new { eventId = ViewBag.EventId })" class="btn btn-primary">Add Budget Item</a>
+</p>

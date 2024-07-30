@@ -1,0 +1,96 @@
+﻿@model EventPlannerApp.Models.Event
+
+@{
+    ViewData["Title"] = "Детали для " + Model.Name;
+    Layout = "_Layout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h2>Детали мероприятия</h2>
+<p>Дата: @Model.Date.ToString("g")</p>
+<p>Место: @Model.Location</p>
+<p>Описание: @Model.Description</p>
+
+<h2>Бюджет</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Описание</th>
+            <th>Сумма</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.BudgetItems)
+        {
+            <tr>
+                <td>@item.Description</td>
+                <td>@item.Amount.ToString("C")</td>
+                <td>
+                    <a href="@Url.Action("Edit", "BudgetItems", new{id = item.Id})" class="btn btn-sm btn-primary">Изменить</a>
+                    <a href="@Url.Action("Delete", "BudgetItems", new{id = item.Id})" class="btn btn-sm btn-danger">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <a href="@Url.Action("Create", "BudgetItems", new{eventId = Model.Id})" class="btn btn-primary">Добавить бюджет</a>
+</p>
+
+<h2>Гости</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Имя</th>
+            <th>Почта</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var guest in Model.Guests)
+        {
+            <tr>
+                <td>@guest.Name</td>
+                <td>@guest.Email</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Guests", new{id = guest.Id})" class="btn btn-sm btn-primary">Изменить</a>
+                    <a href="@Url.Action("Delete", "Guests", new{id = guest.Id})" class="btn btn-sm btn-danger">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <a href="@Url.Action("Create", "Guests", new{eventId = Model.Id})" class="btn btn-primary">Добавить гостя</a>
+</p>
+
+<h2>Расписание</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Время</th>
+            <th>Описание</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var schedule in Model.ScheduleItems)
+        {
+            <tr>
+                <td>@schedule.Time.ToString("g")</td>
+                <td>@schedule.Description</td>
+                <td>
+                    <a href="@Url.Action("Edit", "ScheduleItems", new{id = schedule.Id})" class="btn btn-sm btn-primary">Изменить</a>
+                    <a href="@Url.Action("Delete", "ScheduleItems", new{id = schedule.Id})" class="btn btn-sm btn-danger">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <a href="@Url.Action("Create", "ScheduleItems", new{eventId = Model.Id})" class="btn btn-primary">Добавить расписание</a>
+</p>
+
+<p>
+    <a href="@Url.Action("Edit", "Events", new{ id = Model.Id})" class="btn btn-primary">Изменить</a>
+    <a href="@Url.Action("Index", "Events")" class="btn btn-primary">Назад к списку</a>
+</p>

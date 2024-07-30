@@ -41,7 +41,7 @@ namespace EventPlannerApp.Controllers
             var user = await userManager.GetUserAsync(User);
             @event.OrganizerId = user.Id;
 
-            // Преобразование DateTime в UTC, если это необходимо
+            // Преобразование DateTime в UTC
             if (@event.Date.Kind == DateTimeKind.Unspecified)
             {
                 @event.Date = DateTime.SpecifyKind(@event.Date, DateTimeKind.Utc);
@@ -112,6 +112,29 @@ namespace EventPlannerApp.Controllers
                 }
             }
             return RedirectToAction(nameof(Index));
+        }
+
+        //Метод для отображения полной информации о мероприятии
+        public async Task<IActionResult> Details(int? id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+
+            var user = await userManager.GetUserAsync(User);
+            var @event = await db.Events
+                .Include(e => e.BudgetItems)
+                .Include(e => e.Guests)
+                .Include(e => e.ScheduleItems)
+                .FirstOrDefaultAsync(e => e.Id == id && e.OrganizerId == user.Id);
+
+            if(@event == null)
+            {
+                return NotFound();
+            }
+
+            return View(@event);
         }
     }
 }

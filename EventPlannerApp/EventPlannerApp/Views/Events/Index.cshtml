@@ -11,7 +11,7 @@
     <a asp-action="Create">Создать новое мероприятие</a>
 </p>
 
-<tavle class="table">
+<table class="table">
     <thead>
         <tr>
             <th>Название</th>
@@ -32,7 +32,10 @@
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a>
                 </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Детали</a>
+                </td>
             </tr>
         }
     </tbody>
-</tavle>
+</table>

@@ -1,0 +1,24 @@
+﻿@model EventPlannerApp.Models.BudgetItem
+
+@{
+    ViewData["Title"] = "Edit Budget Item";
+}
+
+<h2>Edit Budget Item</h2>
+
+<form asp-action="Edit">
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Amount"></label>
+        <input asp-for="Amount" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="EventId" />
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="@Url.Action("Index", "Budget", new { eventId = Model.EventId })" class="btn btn-secondary">Cancel</a>
+</form>

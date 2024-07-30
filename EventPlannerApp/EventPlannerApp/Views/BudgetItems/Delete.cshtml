@@ -1,0 +1,34 @@
+﻿@model EventPlannerApp.Models.BudgetItem
+
+@{
+    ViewData["Title"] = "Delete Budget Item";
+}
+
+<h2>Delete Budget Item</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Budget Item</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Description
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Description
+        </dd>
+        <dt class="col-sm-2">
+            Amount
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Amount.ToString("C")
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="EventId" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="@Url.Action("Index", "Budget", new { eventId = Model.EventId })" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
