@@ -1,0 +1,38 @@
+﻿@model IEnumerable<EventPlannerApp.Models.Event>
+
+@{
+    ViewData["Title"] = "Мои представления";
+    Layout = "_Layout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create">Создать новое мероприятие</a>
+</p>
+
+<tavle class="table">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Дата</th>
+            <th>Место</th>
+            <th>Описание</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Date)</td>
+                <td>@Html.DisplayFor(modelItem => item.Location)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</tavle>

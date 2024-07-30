@@ -109,3 +109,4 @@ C:\Users\andro\OneDrive\Документы\My repositories\EventPlannerApp\Event
 C:\Users\andro\OneDrive\Документы\My repositories\EventPlannerApp\EventPlannerApp\EventPlannerApp\obj\Debug\net8.0\EventPlannerApp.pdb
 C:\Users\andro\OneDrive\Документы\My repositories\EventPlannerApp\EventPlannerApp\EventPlannerApp\obj\Debug\net8.0\EventPlannerApp.genruntimeconfig.cache
 C:\Users\andro\OneDrive\Документы\My repositories\EventPlannerApp\EventPlannerApp\EventPlannerApp\obj\Debug\net8.0\ref\EventPlannerApp.dll
+C:\Users\andro\OneDrive\Документы\My repositories\EventPlannerApp\EventPlannerApp\EventPlannerApp\obj\Debug\net8.0\EventPlannerApp.sourcelink.json
