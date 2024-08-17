@@ -1,4 +1,6 @@
-﻿namespace EventPlannerApp.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace EventPlannerApp.Models
 {
     public class Guest
     {

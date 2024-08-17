@@ -8,19 +8,19 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-//Настройка подключения к базе данных
+//РќР°СЃС‚СЂРѕР№РєР° DbContext
 builder.Services.AddDbContext<EventPlannerContext>(options =>
 options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-//Настройка Identity
+//РќР°СЃС‚СЂРѕР№РєР° Identity
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
-    //Отключение двухфакторной аутентификации
+    //РћС‚РєР»СЋС‡РµРЅРёРµ РґРІСѓС…С„Р°РєС‚РѕСЂРЅРѕР№ Р°СѓС‚РµРЅС‚РёС„РёРєР°С†РёРё 
     options.SignIn.RequireConfirmedAccount = false;
     options.SignIn.RequireConfirmedEmail = false;
     options.Tokens.AuthenticatorTokenProvider = null;
 
-    //Настройка пароля 
+    //РќР°СЃС‚СЂРѕР№РєР° РїР°СЂРѕР»СЏ 
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;
     options.Password.RequireNonAlphanumeric = false;
@@ -31,7 +31,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     .AddEntityFrameworkStores<EventPlannerContext>()
     .AddDefaultTokenProviders();
 
-//Настройка конфигурации cookie
+//РќР°СЃС‚СЂРѕР№РєР° РєРѕРЅС„РёРіСѓСЂР°С†РёРё cookie
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Account/Login";
