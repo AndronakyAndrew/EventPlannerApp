@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventPlannerApp", "EventPlannerApp\EventPlannerApp.csproj", "{6007E1B3-1B6A-4AC7-BE2E-879921148781}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventPlannerApp", "EventPlannerApp\EventPlannerApp.csproj", "{6007E1B3-1B6A-4AC7-BE2E-879921148781}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventPlannerApp.Tests", "EventPlannerApp.Tests\EventPlannerApp.Tests.csproj", "{EA97D8D6-7CBB-4E74-9ED8-557F41D0F52B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{6007E1B3-1B6A-4AC7-BE2E-879921148781}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6007E1B3-1B6A-4AC7-BE2E-879921148781}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6007E1B3-1B6A-4AC7-BE2E-879921148781}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA97D8D6-7CBB-4E74-9ED8-557F41D0F52B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA97D8D6-7CBB-4E74-9ED8-557F41D0F52B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA97D8D6-7CBB-4E74-9ED8-557F41D0F52B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA97D8D6-7CBB-4E74-9ED8-557F41D0F52B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
