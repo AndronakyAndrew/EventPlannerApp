@@ -9,6 +9,7 @@ namespace EventPlannerApp.Data
         public EventPlannerContext(DbContextOptions<EventPlannerContext> options) : base(options)
         {
         }
+
         public DbSet<Event> Events { get; set; }
         public DbSet<Guest> Guests { get; set; }
         public DbSet<ScheduleItem> ScheduleItems { get; set; }

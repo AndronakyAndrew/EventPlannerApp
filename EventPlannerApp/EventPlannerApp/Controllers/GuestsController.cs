@@ -39,6 +39,18 @@ namespace EventPlannerApp.Controllers
             return RedirectToAction(nameof(Index), new { eventId = guest.EventId });
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id)
+        {
+            var budgetItems = await db.Guests.FindAsync(id);
+            if (id == null && budgetItems == null)
+            {
+                return NotFound(); //Отправляем 404, если элемент не найден
+            }
+            return View(budgetItems);
+        }
+
+
         //Метод для отображения формы редактирования гостя
         [HttpPost]
         [ValidateAntiForgeryToken]

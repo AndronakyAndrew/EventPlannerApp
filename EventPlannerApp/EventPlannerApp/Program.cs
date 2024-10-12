@@ -1,5 +1,7 @@
 using EventPlannerApp.Data;
 using EventPlannerApp.Models;
+using EventPlannerApp.Repository;
+using EventPlannerApp.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,7 +20,6 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     //Отключение двухфакторной аутентификации 
     options.SignIn.RequireConfirmedAccount = false;
     options.SignIn.RequireConfirmedEmail = false;
-    options.Tokens.AuthenticatorTokenProvider = null;
 
     //Настройка пароля 
     options.Password.RequireDigit = true;
@@ -30,6 +31,12 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 })
     .AddEntityFrameworkStores<EventPlannerContext>()
     .AddDefaultTokenProviders();
+
+//Подключение сервисов
+builder.Services.AddScoped<EventRepository>();
+builder.Services.AddScoped<EventService>();
+builder.Services.AddScoped<BudgetItemsRepository>();
+builder.Services.AddScoped<BudgetItemsService>();
 
 //Настройка конфигурации cookie
 builder.Services.ConfigureApplicationCookie(options =>
@@ -61,6 +68,6 @@ app.MapControllerRoute(
 
 app.MapControllerRoute(
     name: "budget",
-    pattern: "{controller=BudgetItems}/{action=Create}");
+    pattern: "{controller=BudgetItems}/{action=Edit}/{id?}");
 
 app.Run();

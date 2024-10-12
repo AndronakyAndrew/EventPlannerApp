@@ -23,5 +23,6 @@
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Pkgxunit_analyzers Condition=" '$(Pkgxunit_analyzers)' == '' ">C:\Users\andro\.nuget\packages\xunit.analyzers\1.4.0</Pkgxunit_analyzers>
+    <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\andro\.nuget\packages\entityframework\6.0.0</PkgEntityFramework>
   </PropertyGroup>
 </Project>

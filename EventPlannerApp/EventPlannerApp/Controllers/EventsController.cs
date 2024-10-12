@@ -1,9 +1,12 @@
 ﻿using EventPlannerApp.Data;
 using EventPlannerApp.Models;
+using EventPlannerApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace EventPlannerApp.Controllers
 {
@@ -12,19 +15,13 @@ namespace EventPlannerApp.Controllers
     {
         private readonly EventPlannerContext db;
         private readonly UserManager<ApplicationUser> userManager;
+        private readonly EventService eventService;
 
-        public EventsController(EventPlannerContext context, UserManager<ApplicationUser> _userManager)
+        public EventsController(EventPlannerContext context, UserManager<ApplicationUser> _userManager, EventService _eventService)
         {
             db = context;
             userManager = _userManager;
-        }
-
-        //Метод для отображения списка мероприятий для текущего пользователя
-        public async Task<IActionResult> Index()
-        {
-            var user = await userManager.GetUserAsync(User);
-            var events = db.Events.Where(e => e.OrganizerId == user.Id).ToList();
-            return View(events);
+            eventService = _eventService;
         }
 
         //Метод для отображения страницы создания мероприятия
@@ -38,78 +35,51 @@ namespace EventPlannerApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Event @event)
         {
-            var user = await userManager.GetUserAsync(User);
-            @event.OrganizerId = user.Id;
-
-            // Преобразование DateTime в UTC
-            if (@event.Date.Kind == DateTimeKind.Unspecified)
+            if (ModelState.IsValid)
             {
-                @event.Date = DateTime.SpecifyKind(@event.Date, DateTimeKind.Utc);
-            }
-            else if (@event.Date.Kind == DateTimeKind.Local)
-            {
-                @event.Date = @event.Date.ToUniversalTime();
-            }
+                var user = await userManager.GetUserAsync(User);
+                @event.OrganizerId = user.Id;
 
-            db.Add(@event);
-            await db.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+                await eventService.CreateEvent(@event);
+                return RedirectToAction(nameof(Index));                
+            }
+            else
+            {
+                return View(@event);
+            }
         }
 
         //Метод для отображения страницы изменения мероприятия
         public async Task<IActionResult> Edit(int? id)
         {
-            if(id == null)
+            var events = await db.Events.FindAsync(id);
+
+            if (id == null && events == null || events?.OrganizerId != userManager.GetUserId(User))
             {
                 return NotFound(); //Отправляем 404, если мероприятие не было найдено
             }
-
-            var @event = await db.Events.FindAsync(id);
-            if(@event == null || @event.OrganizerId != userManager.GetUserId(User))
-            {
-                return NotFound(); //Отправляем 404 
-            }
-            return View(@event);
+            return View(events);
         }
 
         //Метод для изменения мероприятия
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Event @event)
+        public async Task<IActionResult> Edit(Event events)
         {
-            var user = await userManager.GetUserAsync(User);
-            @event.OrganizerId = user.Id;
-
-            if (id != @event.Id)
+            if(ModelState.IsValid)
             {
-                return NotFound(); //Отправляем 404
-            }
-
-            // Преобразование DateTime в UTC, если это необходимо
-            if (@event.Date.Kind == DateTimeKind.Unspecified)
-            {
-                @event.Date = DateTime.SpecifyKind(@event.Date, DateTimeKind.Utc);
-            }
-            else if (@event.Date.Kind == DateTimeKind.Local)
-            {
-                @event.Date = @event.Date.ToUniversalTime();
-            }
-
-            try
-            {
-                db.Update(@event);
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!db.Events.Any(e => e.Id == @event.Id))
+                var user = await userManager.GetUserAsync(User);
+                events.OrganizerId = user.Id;
+                if(user.Id != events.OrganizerId)
                 {
-                    return NotFound(); //Отправляем 404
+                    return Forbid();
                 }
                 else
-                {
-                    throw;
-                }
+                    await eventService.EditEvent(events);
+            }
+            else
+            {
+                return View(events);
             }
             return RedirectToAction(nameof(Index));
         }
@@ -117,11 +87,6 @@ namespace EventPlannerApp.Controllers
         //Метод для отображения полной информации о мероприятии
         public async Task<IActionResult> Details(int? id)
         {
-            if(id == null)
-            {
-                return NotFound();
-            }
-
             var user = await userManager.GetUserAsync(User);
             var @event = await db.Events
                 .Include(e => e.BudgetItems)
@@ -129,12 +94,24 @@ namespace EventPlannerApp.Controllers
                 .Include(e => e.ScheduleItems)
                 .FirstOrDefaultAsync(e => e.Id == id && e.OrganizerId == user.Id);
 
-            if(@event == null)
+            if (id == null && @event == null)
             {
                 return NotFound();
             }
+            else
+            {
+                return View(@event);
+            }
+        }
 
-            return View(@event);
+        //Метод для отображения списка мероприятий для текущего пользователя
+        public async Task<IActionResult> Index()
+        {
+            var user = await userManager.GetUserAsync(User);
+            var events = await db.Events
+                .Where(e => e.OrganizerId == user.Id)
+                .ToListAsync();
+            return View(events);
         }
     }
 }

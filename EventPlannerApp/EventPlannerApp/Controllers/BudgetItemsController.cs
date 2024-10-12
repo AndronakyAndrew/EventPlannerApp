@@ -1,5 +1,6 @@
 ﻿using EventPlannerApp.Data;
 using EventPlannerApp.Models;
+using EventPlannerApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,9 +10,11 @@ namespace EventPlannerApp.Controllers
     public class BudgetItemsController : Controller
     {
         private readonly EventPlannerContext db;
-        public BudgetItemsController(EventPlannerContext context)
+        private readonly BudgetItemsService service;
+        public BudgetItemsController(EventPlannerContext context, BudgetItemsService budgetItemsService)
         {
             db = context;
+            service = budgetItemsService;
         }
 
         //Метод для отображения списка бюджетных элементов
@@ -29,64 +32,53 @@ namespace EventPlannerApp.Controllers
             return View();
         }
 
-        //Метод создания бюджетных элементов и сохранение в базу данных
+        //Метод добавления бюджета
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(BudgetItem budgetItem)
         {
-            db.Add(budgetItem);
-            await db.SaveChangesAsync();
+            if(budgetItem == null)
+            {
+                return BadRequest("Некорректные данные");
+            }
+            else
+            {
+                await service.CreateBudget(budgetItem);
+            }
             return RedirectToAction(nameof(Index), new {eventId = budgetItem.EventId});
         }
 
         //Метод для отображения формы редактирования
         public async Task<IActionResult> Edit (int? id)
         {
-            if(id == null)
+            var budgetItems = await db.BudgetItems.FindAsync(id);
+            if (id == null && budgetItems == null)
             {
                 return NotFound(); //Отправляем 404, если элемент не найден
             }
-
-            var budgetItem = await db.BudgetItems.FindAsync(id);
-            if(budgetItem == null)
-            {
-                return NotFound();
-            }
-            return View(budgetItem);
+            return View(budgetItems);
         }
 
         //Метод редактирования бюджетных элементов
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit (int id, BudgetItem budgetItem)
+        public async Task<IActionResult> Edit (int id, BudgetItem budget)
         {
-            if(id != budgetItem.Id)
-            {
+            if(id != budget.Id) 
                 return NotFound();
-            }
-
-            db.Update(budgetItem);
-            await db.SaveChangesAsync();
-            return RedirectToAction(nameof(Index), new { eventId = budgetItem.EventId});
+            else 
+                await service.EditBudget(budget);
+            return RedirectToAction(nameof(Index), new { eventId = budget.EventId});
         } 
 
         //Метод для удаления бюджетных элементов
-        public async Task<IActionResult> Delete (int? id)
+        public async Task<IActionResult> Delete (int? id, BudgetItem budget)
         {
-            if(id == null)
-            {
+            if (id == null && budget == null)
                 return NotFound();
-            }
-
-            var budgetItem = await db.BudgetItems.FindAsync(id);
-            if(budgetItem == null)
-            {
-                return NotFound();
-            }
-
-            db.BudgetItems.Remove(budgetItem);
-            await db.SaveChangesAsync();
-            return RedirectToAction(nameof(Index), new { eventId = budgetItem.EventId});
+            else
+                await service.DeleteBudget(budget);
+            return RedirectToAction(nameof(Index), new { eventId = budget.EventId});
         }
 
     }
