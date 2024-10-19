@@ -37,6 +37,10 @@ builder.Services.AddScoped<EventRepository>();
 builder.Services.AddScoped<EventService>();
 builder.Services.AddScoped<BudgetItemsRepository>();
 builder.Services.AddScoped<BudgetItemsService>();
+builder.Services.AddScoped<GuestsRepository>();
+builder.Services.AddScoped<GuestsService>();
+builder.Services.AddScoped<ScheduleItemsRepository>();
+builder.Services.AddScoped<ScheduleItemsService>();
 
 //Настройка конфигурации cookie
 builder.Services.ConfigureApplicationCookie(options =>
@@ -65,9 +69,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
-app.MapControllerRoute(
-    name: "budget",
-    pattern: "{controller=BudgetItems}/{action=Edit}/{id?}");
 
 app.Run();

@@ -21,8 +21,8 @@
                 <td>@item.Description</td>
                 <td>@item.Amount.ToString("C")</td>
                 <td>
-                    <a href="@Url.Action("Edit", "BudgetItems")" class="btn btn-sm btn-primary">Edit</a>
-                    <a href="@Url.Action("Delete", "BudgetItems")" class="btn btn-sm btn-danger">Delete</a>
+                    <a href="@Url.Action("Edit", "Budget", new {eventId = ViewBag.EventId})" class="btn btn-sm btn-primary">Edit</a>
+                    <a href="@Url.Action("Delete", "Budget", new {eventId = ViewBag.EventId})" class="btn btn-sm btn-danger">Delete</a>
                 </td>
             </tr>
         }
@@ -30,6 +30,6 @@
 </table>
 
 <p>
-    <a href="@Url.Action("Create", "BudgetItems")" class="btn btn-primary">Add Budget Item</a>
+    <a href="@Url.Action("Create", "BudgetItems", new {eventId = ViewBag.EventId })" class="btn btn-primary">Add Budget Item</a>
     <a href="@Url.Action("Index", "Events")" class="btn btn-primary">Назад к списку</a>
 </p>

@@ -85,6 +85,7 @@ namespace EventPlannerApp.Controllers
         }
 
         //Метод для отображения полной информации о мероприятии
+        [HttpGet]
         public async Task<IActionResult> Details(int? id)
         {
             var user = await userManager.GetUserAsync(User);
@@ -98,10 +99,7 @@ namespace EventPlannerApp.Controllers
             {
                 return NotFound();
             }
-            else
-            {
-                return View(@event);
-            }
+            return View(@event);
         }
 
         //Метод для отображения списка мероприятий для текущего пользователя

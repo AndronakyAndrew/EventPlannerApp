@@ -25,9 +25,9 @@ namespace EventPlannerApp.Services
         }
 
         //Логика удаления бюджета
-        public async Task DeleteBudget(BudgetItem budget)
+        public async Task DeleteBudget(int id, BudgetItem budget)
         {
-            await rep.DeleteBudgetAsync(budget);
+            await rep.DeleteBudgetAsync(id, budget);
         }
     }
 }

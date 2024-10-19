@@ -1,8 +1,8 @@
 ﻿using EventPlannerApp.Data;
 using EventPlannerApp.Models;
+using EventPlannerApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace EventPlannerApp.Controllers
 {
@@ -10,9 +10,11 @@ namespace EventPlannerApp.Controllers
     public class ScheduleItemsController : Controller
     {
         private readonly EventPlannerContext db;
-        public ScheduleItemsController(EventPlannerContext context)
+        private readonly ScheduleItemsService service;
+        public ScheduleItemsController(EventPlannerContext context, ScheduleItemsService scheduleItemsService)
         {
             db = context;
+            service = scheduleItemsService;
         }
 
         //Метод для отображения списка элементов расписания
@@ -35,31 +37,16 @@ namespace EventPlannerApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create (ScheduleItem scheduleItem)
         {
-            // Преобразование DateTime в UTC
-            if (scheduleItem.Time.Kind == DateTimeKind.Unspecified)
-            {
-                scheduleItem.Time = DateTime.SpecifyKind(scheduleItem.Time, DateTimeKind.Utc);
-            }
-            else if (scheduleItem.Time.Kind == DateTimeKind.Local)
-            {
-                scheduleItem.Time = scheduleItem.Time.ToUniversalTime();
-            }
-
-            db.Add(scheduleItem);
-            await db.SaveChangesAsync();
-            return RedirectToAction(nameof(Index), new {eventId = scheduleItem.EventId});
+            await service.CreateSchedule(scheduleItem);
+            return RedirectToAction("Index","Events", new {eventId = scheduleItem.EventId});
         }
 
         //Метод для отображения формы редактирования расписания
         public async Task<IActionResult> Edit(int? id)
         {
-            if(id == null)
-            {
-                return NotFound();
-            }
-
             var scheduleItem = await db.ScheduleItems.FindAsync(id);
-            if(scheduleItem == null)
+
+            if (id == null && scheduleItem == null)
             {
                 return NotFound();
             }
@@ -71,33 +58,15 @@ namespace EventPlannerApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, ScheduleItem scheduleItem)
         {
-            if(id != scheduleItem.Id)
-            {
-                return NotFound();
-            }
-
-            db.Update(scheduleItem);
-            await db.SaveChangesAsync();
-            return RedirectToAction(nameof(Index), new {eventId = scheduleItem.EventId});
+            await service.EditSchedule(id, scheduleItem);
+            return RedirectToAction("Index","Events", new {eventId = scheduleItem.EventId});
         }
 
         //Метод для удаления расписания
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int id, ScheduleItem schedule)
         {
-            if(id == null)
-            {
-                return NotFound();
-            }
-
-            var scheduleItem = await db.ScheduleItems.FindAsync(id);
-            if(scheduleItem == null)
-            {
-                return NotFound();
-            }
-
-            db.ScheduleItems.Remove(scheduleItem);
-            await db.SaveChangesAsync();
-            return RedirectToAction(nameof(Index), new {eventId = scheduleItem.EventId});
+            await service.DeleteSchedule(id, schedule);
+            return RedirectToAction("Index","Events", new {eventId = schedule.EventId});
         }
     }
 }

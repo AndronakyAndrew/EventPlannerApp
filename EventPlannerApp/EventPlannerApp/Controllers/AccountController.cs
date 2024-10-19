@@ -15,7 +15,6 @@ namespace EventPlannerApp.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
-
         }
 
         //Метод для отображения формы регистрации
@@ -38,7 +37,6 @@ namespace EventPlannerApp.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
-
                     return RedirectToAction("Index", "Home");   
                 }
                 foreach(var error in result.Errors)

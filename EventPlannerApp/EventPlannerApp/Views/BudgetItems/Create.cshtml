@@ -19,5 +19,5 @@
     </div>
     <input type="hidden" asp-for="EventId" value="@ViewBag.EventId" />
     <button type="submit" class="btn btn-primary">Save</button>
-    <a href="@Url.Action("Index", "BudgetItems", new { eventId = ViewBag.EventId })" class="btn btn-secondary">Cancel</a>
+    <a href="@Url.Action("Index", "Events", new { eventId = ViewBag.EventId })" class="btn btn-secondary">Cancel</a>
 </form>

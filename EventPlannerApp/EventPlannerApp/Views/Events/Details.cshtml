@@ -21,7 +21,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var item in Model.BudgetItems)
+        @foreach (var item in Model.BudgetItems)
         {
             <tr>
                 <td>@item.Description</td>
@@ -47,7 +47,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var guest in Model.Guests)
+        @foreach (var guest in Model.Guests)
         {
             <tr>
                 <td>@guest.Name</td>
@@ -73,7 +73,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var schedule in Model.ScheduleItems)
+        @foreach (var schedule in Model.ScheduleItems)
         {
             <tr>
                 <td>@schedule.Time.ToString("g")</td>

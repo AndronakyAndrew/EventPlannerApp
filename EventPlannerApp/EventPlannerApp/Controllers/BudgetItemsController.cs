@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EventPlannerApp.Controllers
 {
-    [Authorize]
     public class BudgetItemsController : Controller
     {
         private readonly EventPlannerContext db;
@@ -45,10 +44,11 @@ namespace EventPlannerApp.Controllers
             {
                 await service.CreateBudget(budgetItem);
             }
-            return RedirectToAction(nameof(Index), new {eventId = budgetItem.EventId});
+            return RedirectToAction("Details","Events", new {eventId = budgetItem.EventId});
         }
 
         //Метод для отображения формы редактирования
+        [HttpGet]
         public async Task<IActionResult> Edit (int? id)
         {
             var budgetItems = await db.BudgetItems.FindAsync(id);
@@ -64,21 +64,25 @@ namespace EventPlannerApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit (int id, BudgetItem budget)
         {
-            if(id != budget.Id) 
+            if(id != budget.Id)
+            {
                 return NotFound();
+            }
             else 
-                await service.EditBudget(budget);
-            return RedirectToAction(nameof(Index), new { eventId = budget.EventId});
-        } 
+               await service.EditBudget(budget);
+            return RedirectToAction("Index", "Events");
+        }
 
         //Метод для удаления бюджетных элементов
-        public async Task<IActionResult> Delete (int? id, BudgetItem budget)
+        public async Task<IActionResult> Delete (int id, BudgetItem budget)
         {
             if (id == null && budget == null)
+            {
                 return NotFound();
+            }
             else
-                await service.DeleteBudget(budget);
-            return RedirectToAction(nameof(Index), new { eventId = budget.EventId});
+                await service.DeleteBudget(id, budget);
+            return RedirectToAction("Index", "Events");
         }
 
     }

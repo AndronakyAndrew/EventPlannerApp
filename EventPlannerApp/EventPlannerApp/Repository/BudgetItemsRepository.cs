@@ -1,7 +1,6 @@
 ﻿using EventPlannerApp.Data;
 using EventPlannerApp.Models;
-using Microsoft.Extensions.Logging;
-using System.Data.Entity.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
 namespace EventPlannerApp.Repository
 {
@@ -37,10 +36,13 @@ namespace EventPlannerApp.Repository
         }
 
         //Метод для удаления бюджета
-        public async Task DeleteBudgetAsync(BudgetItem budget)
+        public async Task DeleteBudgetAsync(int id, BudgetItem budget)
         {
-            db.BudgetItems.Remove(budget);
-            await db.SaveChangesAsync();
+            if(id != null &&  budget != null)
+            {
+                db.BudgetItems.Remove(budget);
+                await db.SaveChangesAsync();
+            }
         }
     }
 }

@@ -29,6 +29,6 @@
         <input type="hidden" asp-for="Id" />
         <input type="hidden" asp-for="EventId" />
         <button type="submit" class="btn btn-danger">Delete</button>
-        <a href="@Url.Action("Index", "ScheduleItems", new { eventId = Model.EventId })" class="btn btn-secondary">Cancel</a>
+        <a href="@Url.Action("Index", "Events", new { eventId = Model.EventId })" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
