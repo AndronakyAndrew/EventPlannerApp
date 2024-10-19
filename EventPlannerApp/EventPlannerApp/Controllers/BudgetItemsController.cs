@@ -44,7 +44,7 @@ namespace EventPlannerApp.Controllers
             {
                 await service.CreateBudget(budgetItem);
             }
-            return RedirectToAction("Details","Events", new {eventId = budgetItem.EventId});
+            return RedirectToAction("Index","Events", new {eventId = budgetItem.EventId});
         }
 
         //Метод для отображения формы редактирования

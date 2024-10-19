@@ -20,3 +20,7 @@ html {
 body {
   margin-bottom: 60px;
 }
+p.main{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+}

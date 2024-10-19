@@ -18,7 +18,7 @@ namespace EventPlannerApp.Repository
         //Метод для добавления мероприятия
         public async Task CreateEvent(Event events)
         {
-            await db.Events.AddAsync(events);
+            db.Events.Add(events);
             await db.SaveChangesAsync();
         }
 
@@ -26,6 +26,13 @@ namespace EventPlannerApp.Repository
         public async Task EditEvent(Event events)
         {
             db.Update(events);
+            await db.SaveChangesAsync();
+        }
+
+        //Метод для удаления мероприятия
+        public async Task DeleteEvent(Event events)
+        {
+            db.Remove(events);
             await db.SaveChangesAsync();
         }
     }

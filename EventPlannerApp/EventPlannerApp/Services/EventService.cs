@@ -9,12 +9,10 @@ namespace EventPlannerApp.Services
     public class EventService
     {
         private readonly EventRepository eventRep;
-        private readonly UserManager<ApplicationUser> manager;
 
-        public EventService(EventRepository repository, UserManager<ApplicationUser> userManager)
+        public EventService(EventRepository repository)
         {
             eventRep = repository;
-            manager = userManager;
         }
 
         //Логика добавления мероприятия
@@ -47,6 +45,16 @@ namespace EventPlannerApp.Services
                 events.Date = events.Date.ToUniversalTime();
             }
              await eventRep.EditEvent(events);
+        }
+
+        //Логика для удаления мероприятия
+        public async Task DeleteEvent(int id, Event events)
+        {
+            if(id == 0 || events == null)
+            {
+                throw new Exception("Мероприятие не найдено!");
+            }
+            await eventRep.DeleteEvent(events);
         }
     }
 }

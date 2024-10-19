@@ -84,6 +84,13 @@ namespace EventPlannerApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //Метод для удаления мероприятия
+        public async Task<IActionResult> DeleteEvent(int id, Event events)
+        {
+            await eventService.DeleteEvent(id, events);
+            return RedirectToAction(nameof(Index));
+        }
+
         //Метод для отображения полной информации о мероприятии
         [HttpGet]
         public async Task<IActionResult> Details(int? id)
