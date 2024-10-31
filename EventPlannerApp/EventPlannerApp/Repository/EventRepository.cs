@@ -1,18 +1,18 @@
 ﻿using EventPlannerApp.Data;
 using EventPlannerApp.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 
 namespace EventPlannerApp.Repository
 {
     public class EventRepository
     {
         private readonly EventPlannerContext db;
+        private readonly UserManager<ApplicationUser> userManage;
 
-        public EventRepository(EventPlannerContext context)
+        public EventRepository(EventPlannerContext context, UserManager<ApplicationUser> manager)
         {
             db = context;
+            userManage = manager;
         }    
 
         //Метод для добавления мероприятия

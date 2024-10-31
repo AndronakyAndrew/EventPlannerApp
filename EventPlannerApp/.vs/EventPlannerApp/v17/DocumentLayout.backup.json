@@ -11,16 +11,16 @@
       "RelativeMoniker": "D:0:0:{6007E1B3-1B6A-4AC7-BE2E-879921148781}|EventPlannerApp\\EventPlannerApp.csproj|solutionrelative:eventplannerapp\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6007E1B3-1B6A-4AC7-BE2E-879921148781}|EventPlannerApp\\EventPlannerApp.csproj|c:\\users\\andro\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\my repositories\\eventplannerapp\\eventplannerapp\\eventplannerapp\\controllers\\budgetitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6007E1B3-1B6A-4AC7-BE2E-879921148781}|EventPlannerApp\\EventPlannerApp.csproj|solutionrelative:eventplannerapp\\controllers\\budgetitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6007E1B3-1B6A-4AC7-BE2E-879921148781}|EventPlannerApp\\EventPlannerApp.csproj|c:\\users\\andro\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\my repositories\\eventplannerapp\\eventplannerapp\\eventplannerapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6007E1B3-1B6A-4AC7-BE2E-879921148781}|EventPlannerApp\\EventPlannerApp.csproj|solutionrelative:eventplannerapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6007E1B3-1B6A-4AC7-BE2E-879921148781}|EventPlannerApp\\EventPlannerApp.csproj|c:\\users\\andro\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\my repositories\\eventplannerapp\\eventplannerapp\\eventplannerapp\\controllers\\scheduleitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6007E1B3-1B6A-4AC7-BE2E-879921148781}|EventPlannerApp\\EventPlannerApp.csproj|solutionrelative:eventplannerapp\\controllers\\scheduleitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6007E1B3-1B6A-4AC7-BE2E-879921148781}|EventPlannerApp\\EventPlannerApp.csproj|c:\\users\\andro\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\my repositories\\eventplannerapp\\eventplannerapp\\eventplannerapp\\controllers\\budgetitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6007E1B3-1B6A-4AC7-BE2E-879921148781}|EventPlannerApp\\EventPlannerApp.csproj|solutionrelative:eventplannerapp\\controllers\\budgetitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6007E1B3-1B6A-4AC7-BE2E-879921148781}|EventPlannerApp\\EventPlannerApp.csproj|c:\\users\\andro\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\my repositories\\eventplannerapp\\eventplannerapp\\eventplannerapp\\controllers\\guestscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,21 +34,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\andro\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\My repositories\\EventPlannerApp\\EventPlannerApp\\EventPlannerApp\\Program.cs",
               "RelativeDocumentMoniker": "EventPlannerApp\\Program.cs",
               "ToolTip": "C:\\Users\\andro\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\My repositories\\EventPlannerApp\\EventPlannerApp\\EventPlannerApp\\Program.cs",
               "RelativeToolTip": "EventPlannerApp\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAYwBMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-25T22:57:44.305Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -58,7 +57,7 @@
               "RelativeDocumentMoniker": "EventPlannerApp\\Controllers\\EventsController.cs",
               "ToolTip": "C:\\Users\\andro\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\My repositories\\EventPlannerApp\\EventPlannerApp\\EventPlannerApp\\Controllers\\EventsController.cs",
               "RelativeToolTip": "EventPlannerApp\\Controllers\\EventsController.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAIwFgAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAuwIgAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-30T05:52:14.932Z",
               "IsPinned": true,
@@ -66,7 +65,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "BudgetItemsController.cs",
               "DocumentMoniker": "C:\\Users\\andro\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\My repositories\\EventPlannerApp\\EventPlannerApp\\EventPlannerApp\\Controllers\\BudgetItemsController.cs",
               "RelativeDocumentMoniker": "EventPlannerApp\\Controllers\\BudgetItemsController.cs",
@@ -75,8 +74,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-12T12:33:41.297Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -89,22 +87,28 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-17T14:47:52.16Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "ScheduleItemsController.cs",
               "DocumentMoniker": "C:\\Users\\andro\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\My repositories\\EventPlannerApp\\EventPlannerApp\\EventPlannerApp\\Controllers\\ScheduleItemsController.cs",
               "RelativeDocumentMoniker": "EventPlannerApp\\Controllers\\ScheduleItemsController.cs",
               "ToolTip": "C:\\Users\\andro\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\My repositories\\EventPlannerApp\\EventPlannerApp\\EventPlannerApp\\Controllers\\ScheduleItemsController.cs",
               "RelativeToolTip": "EventPlannerApp\\Controllers\\ScheduleItemsController.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAcwDMAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-18T14:17:23.922Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
               "$type": "Document",
@@ -114,18 +118,10 @@
               "RelativeDocumentMoniker": "EventPlannerApp\\Views\\Events\\Index.cshtml",
               "ToolTip": "C:\\Users\\andro\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\My repositories\\EventPlannerApp\\EventPlannerApp\\EventPlannerApp\\Views\\Events\\Index.cshtml",
               "RelativeToolTip": "EventPlannerApp\\Views\\Events\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-19T12:07:32.865Z",
+              "WhenOpened": "2024-10-29T06:59:54.503Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             }
           ]
         }

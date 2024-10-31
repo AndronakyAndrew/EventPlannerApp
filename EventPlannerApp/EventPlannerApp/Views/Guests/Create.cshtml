@@ -18,6 +18,6 @@
         <span asp-validation-for="Email" class="text-danger"></span>
     </div>
     <input type="hidden" asp-for="EventId" value="@ViewBag.EventId" />
-    <button type="submit" class="btn btn-primary">Save</button>
-    <a href="@Url.Action("Index", "Events", new { eventId = ViewBag.EventId })" class="btn btn-secondary">Cancel</a>
+    <button type="submit" class="btn btn-success">Добавить</button>
+    <a href="@Url.Action("Index", "Events", new { eventId = ViewBag.EventId })" class="btn btn-warning">Отменить</a>
 </form>

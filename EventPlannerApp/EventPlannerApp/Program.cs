@@ -17,6 +17,7 @@ options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")
 //Настройка Identity
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
+
     //Отключение двухфакторной аутентификации 
     options.SignIn.RequireConfirmedAccount = false;
     options.SignIn.RequireConfirmedEmail = false;

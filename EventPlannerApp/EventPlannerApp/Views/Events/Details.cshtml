@@ -5,6 +5,12 @@
     Layout = "_Layout";
 }
 
+<form asp-action="Index">
+    <button class="btn btn-primary">Назад</button>
+    <a href="@Url.Action("Edit", "Events", new{ id = Model.Id})" class="btn btn-primary">Редактировать</a>
+</form>
+
+
 <h1>@ViewData["Title"]</h1>
 
 <h2>Детали мероприятия</h2>
@@ -13,6 +19,7 @@
 <p>Описание: @Model.Description</p>
 
 <h2>Бюджет</h2>
+<a href="@Url.Action("Create", "BudgetItems", new{eventId = Model.Id})" class="btn btn-success">Добавить бюджет</a>
 <table class="table">
     <thead>
         <tr>
@@ -34,11 +41,9 @@
         }
     </tbody>
 </table>
-<p>
-    <a href="@Url.Action("Create", "BudgetItems", new{eventId = Model.Id})" class="btn btn-primary">Добавить бюджет</a>
-</p>
 
 <h2>Гости</h2>
+<a href="@Url.Action("Create", "Guests", new{eventId = Model.Id})" class="btn btn-success">Добавить гостя</a>
 <table class="table">
     <thead>
         <tr>
@@ -60,11 +65,9 @@
         }
     </tbody>
 </table>
-<p>
-    <a href="@Url.Action("Create", "Guests", new{eventId = Model.Id})" class="btn btn-primary">Добавить гостя</a>
-</p>
 
 <h2>Расписание</h2>
+<a href="@Url.Action("Create", "ScheduleItems", new{eventId = Model.Id})" class="btn btn-success">Добавить расписание</a>
 <table class="table">
     <thead>
         <tr>
@@ -85,12 +88,3 @@
             </tr>
         }
     </tbody>
-</table>
-<p>
-    <a href="@Url.Action("Create", "ScheduleItems", new{eventId = Model.Id})" class="btn btn-primary">Добавить расписание</a>
-</p>
-
-<p>
-    <a href="@Url.Action("Edit", "Events", new{ id = Model.Id})" class="btn btn-primary">Изменить</a>
-    <a href="@Url.Action("Index", "Events")" class="btn btn-primary">Назад к списку</a>
-</p>

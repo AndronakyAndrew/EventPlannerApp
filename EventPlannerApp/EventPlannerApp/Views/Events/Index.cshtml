@@ -7,11 +7,17 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<p>
-    <a asp-action="Create">Создать новое мероприятие</a>
-</p>
+<form asp-action="Search">
+    <input type="text" placeholder="Поиск мероприятий" class="search-bar" name="query"/>
+    <button type="submit" class="btn btn-success">Поиск</button>
+</form>
 
-<table class="table">
+<form asp-action="Create">
+    <button class="btn btn-success" type="submit">Создать новое мероприятие</button>
+    <button asp-action="Index" asp-controller="Home" class="btn btn-outline-primary" type="submit">На главную</button>
+</form>
+
+<table class="table table-hover">
     <thead>
         <tr>
             <th>Название</th>
@@ -38,7 +44,9 @@
                     <a asp-action="Details" asp-route-id="@item.Id">Детали</a>
                 </td>
                 <td>
-                    <a asp-action="DeleteEvent" asp-route-id="@item.Id" >Удалить</a>
+                    <form asp-action="DeleteEvent" asp-route-id="@item.Id">
+                        <button class="btn btn-danger">Удалить</button>
+                    </form>
                 </td>
             </tr>
         }

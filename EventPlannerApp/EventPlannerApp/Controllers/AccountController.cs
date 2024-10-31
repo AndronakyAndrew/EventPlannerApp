@@ -68,7 +68,7 @@ namespace EventPlannerApp.Controllers
                 }
                 else
                 {
-                    _logger.LogWarning($"Login failed for user {model.Name}: Invalid login attempt.");
+                    _logger.LogWarning($"Login failed for user {model.Name}: Неверное имя пользователя или пароль.");
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                 }
             }

@@ -4,9 +4,7 @@ using EventPlannerApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 
 namespace EventPlannerApp.Controllers
 {
@@ -93,7 +91,7 @@ namespace EventPlannerApp.Controllers
 
         //Метод для отображения полной информации о мероприятии
         [HttpGet]
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
             var user = await userManager.GetUserAsync(User);
             var @event = await db.Events
@@ -102,7 +100,7 @@ namespace EventPlannerApp.Controllers
                 .Include(e => e.ScheduleItems)
                 .FirstOrDefaultAsync(e => e.Id == id && e.OrganizerId == user.Id);
 
-            if (id == null && @event == null)
+            if (id == 0 && @event == null)
             {
                 return NotFound();
             }
@@ -113,10 +111,36 @@ namespace EventPlannerApp.Controllers
         public async Task<IActionResult> Index()
         {
             var user = await userManager.GetUserAsync(User);
+            if(user == null)
+            {
+                return NotFound("Пользователь не найден");
+            }
             var events = await db.Events
                 .Where(e => e.OrganizerId == user.Id)
                 .ToListAsync();
             return View(events);
+        }
+
+        //Метод поиска мероприятий
+        [HttpPost]
+        public async  Task<IActionResult> Search(string query)
+        {
+            var user =  await userManager.GetUserAsync(User);
+            if (string.IsNullOrWhiteSpace(query))
+            {
+                return BadRequest("Строка поиска не должна быть пустой");
+            }
+
+            //Поиск совпадений в базе данных
+            var result = db.Events
+                .Where(e => e.OrganizerId == user.Id && (e.Name.Contains(query) || e.Description.Contains(query)))
+                .ToList();
+
+            if(result.Count == 0)
+            {
+                return NotFound("Мероприятия не найдены");
+            }
+            return View("Index", result);
         }
     }
 }
